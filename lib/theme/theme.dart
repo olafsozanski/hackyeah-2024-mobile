@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Spacing {
-  final EdgeInsets screenPadding = const EdgeInsets.all(16);
+  final EdgeInsets screenPadding = const EdgeInsets.all(32);
 
   const Spacing();
 }
