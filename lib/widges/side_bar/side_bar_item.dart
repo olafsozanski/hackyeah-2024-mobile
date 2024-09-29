@@ -24,11 +24,12 @@ class SideBarItem extends StatelessWidget {
                   ? AppTheme.colors.primary.shade500
                   : AppTheme.colors.textPrimary),
           const SizedBox(
-            width: 8,
+            width: 16,
           ),
           Text(
             name,
             style: TextStyle(
+              fontSize: 16,
                 color: isActive
                     ? AppTheme.colors.primary.shade500
                     : AppTheme.colors.textPrimary),

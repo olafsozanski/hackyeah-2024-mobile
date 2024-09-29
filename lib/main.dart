@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       routes: {
         HomePage.routeName: (_) => HomePage(),
       },
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: AppTheme.colors.primary,
         primaryColor: AppTheme.colors.primary,

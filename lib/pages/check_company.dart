@@ -32,9 +32,9 @@ class _CheckCompany extends State<CheckCompany> {
                   style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(
-                  height: 8,
+                  height: 4,
                 ),
-                const Text("Podaj numer podatkowy kontrahenta, by rozpoczać"),
+                const Text("Podaj numer podatkowy kontrahenta, by rozpoczać", style: TextStyle(fontSize: 16),),
                 const SizedBox(
                   height: 32,
                 ),
