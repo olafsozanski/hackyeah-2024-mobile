@@ -1,12 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:hackyeah_2024_mobile/data/companies_full_info.dart';
+import 'package:hackyeah_2024_mobile/dio.dart';
 import 'package:hackyeah_2024_mobile/theme/theme.dart';
 
-class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key, required this.nip});
+class ResultScreen extends StatefulWidget {
+  ResultScreen({super.key, required this.nip});
   final String nip;
 
   @override
+  State<ResultScreen> createState() => _ResultScreen();
+}
+
+class _ResultScreen extends State<ResultScreen> {
+  @override
   Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: getCompany(nip: widget.nip),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return buildLoading();
+          }
+          return buildResultScreen(snapshot);
+        });
+  }
+
+  Widget buildLoading() {
+    return const Center(child: CircularProgressIndicator());
+  }
+
+  Widget buildResultScreen(snapshot) {
+    CompaniesFullInfo companyData = snapshot.data;
+
     return Padding(
       padding: AppTheme.spacing.screenPadding,
       child: Column(
@@ -20,6 +44,8 @@ class ResultScreen extends StatelessWidget {
             height: 8,
           ),
           const Text("Sprawdziliśmy dla Ciebie dane poniższej firmy."),
+          Text(widget.nip),
+          // Text(companyData.company.name),
           const SizedBox(
             height: 32,
           ),
